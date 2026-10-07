@@ -176,6 +176,7 @@
     height: 100%;
     border-radius: 4px;
     min-width: 4px;
+    transition: width 220ms cubic-bezier(0.23, 1, 0.32, 1);
   }
   .hbar-value {
     font-size: 12px;
@@ -261,6 +262,18 @@
       <h2>Programas de interés más mencionados</h2>
       <p class="hint">Solo lo llena el formulario "General" de Meta y el campo de programa del Google Form; el resto de leads no lo pregunta.</p>
       <div id="chartProgramas"></div>
+    </div>
+
+    <div class="card">
+      <h2>Ciudades de registro</h2>
+      <p class="hint">Ciudad indicada por cada lead. El formulario "General" de Meta no la pregunta, así que esos leads no aparecen aquí.</p>
+      <div id="chartCiudad"></div>
+    </div>
+
+    <div class="card">
+      <h2>Canal de registro</h2>
+      <p class="hint">Por dónde llegó cada lead: el formulario de Google, Facebook (Meta Lead Ads) o el CRM de StudyIn.</p>
+      <div id="chartFuente"></div>
     </div>
   </div>
 </main>
@@ -348,6 +361,34 @@
     return idx >= 0 ? CATEGORICAL[idx] : CATEGORICAL[TIPO_ORDEN.length];
   }
 
+  // Normaliza solo para agrupar variantes de escritura de la misma ciudad (tildes/mayúsculas/espacios);
+  // no corrige errores de contenido (ej. "Colombia" o "Yes" como ciudad quedan tal cual).
+  function claveCiudad(s) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function puntajeVariante(s) {
+    let score = 0;
+    if (/[^\x00-\x7F]/.test(s)) score += 2; // conserva tilde/diacrítico
+    if (/^[A-ZÀ-Ý]/.test(s)) score += 1; // empieza en mayúscula
+    return score;
+  }
+
+  function agruparCiudades(porCiudad) {
+    const grupos = {};
+    for (const [nombre, count] of Object.entries(porCiudad || {})) {
+      const key = claveCiudad(nombre);
+      if (!grupos[key]) grupos[key] = { total: 0, variantes: {} };
+      grupos[key].total += count;
+      grupos[key].variantes[nombre] = (grupos[key].variantes[nombre] || 0) + count;
+    }
+    return Object.values(grupos).map((g) => {
+      const variantes = Object.entries(g.variantes)
+        .sort((a, b) => b[1] - a[1] || puntajeVariante(b[0]) - puntajeVariante(a[0]));
+      return [variantes[0][0], g.total];
+    });
+  }
+
   function render(data) {
     document.getElementById('totalLeads').textContent = data.total;
 
@@ -367,6 +408,18 @@
       if (resto > 0) progEntradas.push(['Otros', resto]);
     }
     renderHBar('chartProgramas', progEntradas, () => '#2a78d6', false);
+
+    let ciudadEntradas = agruparCiudades(data.porCiudad || {}).sort((a, b) => b[1] - a[1]);
+    if (ciudadEntradas.length > 8) {
+      const resto = ciudadEntradas.slice(8).reduce((sum, [, c]) => sum + c, 0);
+      ciudadEntradas = ciudadEntradas.slice(0, 8);
+      if (resto > 0) ciudadEntradas.push(['Otras', resto]);
+    }
+    renderHBar('chartCiudad', ciudadEntradas, () => '#1baf7a', false);
+
+    const COLOR_FUENTE = { 'Google Form': '#2a78d6', 'Facebook': '#E63950', 'CRM': '#12253F', 'Sin especificar': '#8a94a6' };
+    const fuenteEntradas = Object.entries(data.porFuente || {}).sort((a, b) => b[1] - a[1]);
+    renderHBar('chartFuente', fuenteEntradas, (label) => COLOR_FUENTE[label] || '#8a94a6', false);
 
     document.getElementById('loadingBox').style.display = 'none';
     document.getElementById('errorBox').style.display = 'none';
