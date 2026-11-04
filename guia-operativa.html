@@ -1,0 +1,315 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guía operativa del QR · Bogotá</title>
+<style>
+:root{
+  --navy:#12253F; --navy-2:#1a3458; --coral:#E63950; --coral-dark:#c22a40; --lime-fg:#3f5b16; --lime-bg:#e4f4c8;
+  --bg:#F6F7F5; --surface:#ffffff; --surface-2:#eef0ec; --border:#dfe2dd; --text:#1c2430; --text-muted:#5b6473;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141b; --surface:#19212b; --surface-2:#212a35; --border:#2b3542; --text:#e7eaee; --text-muted:#98a3b0;
+    --navy:#9fc0ec; --navy-2:#7fa3d6; --coral:#ff7585; --coral-dark:#ff95a1; --lime-fg:#c9f27d; --lime-bg:#213016;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --surface:#19212b; --surface-2:#212a35; --border:#2b3542; --text:#e7eaee; --text-muted:#98a3b0;
+  --navy:#9fc0ec; --navy-2:#7fa3d6; --coral:#ff7585; --coral-dark:#ff95a1; --lime-fg:#c9f27d; --lime-bg:#213016;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  padding-inline:16px; padding-block:26px;
+}
+.wrap{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:'Manrope',Inter,sans-serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(24px,5vw,32px);font-weight:800;color:var(--navy);letter-spacing:-0.01em}
+h2{font-size:19px;font-weight:800;color:var(--navy)}
+h3{font-size:14.5px;font-weight:700;color:var(--text)}
+p{margin:0;line-height:1.55}
+.muted{color:var(--text-muted)}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--coral)}
+
+header{display:flex;flex-direction:column;gap:8px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:2px}
+.meta span{font-size:13px;color:var(--text-muted)}
+.meta b{color:var(--text);font-weight:700}
+
+nav.jump{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;
+  background:var(--bg);padding-block:8px;margin-block:-4px}
+nav.jump a{
+  font-size:12.5px;font-weight:700;color:var(--navy);background:var(--surface);border:1px solid var(--border);
+  padding:6px 12px;border-radius:999px;text-decoration:none;white-space:nowrap;
+}
+
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:20px 20px 22px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:52px;
+}
+.card.summary{background:linear-gradient(155deg,var(--navy),var(--navy-2));border-color:var(--navy);color:#fff}
+.card.summary .eyebrow{color:var(--lime-fg);filter:none}
+.card.summary h2{color:#fff}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px 18px}
+.grid .item{display:flex;flex-direction:column;gap:2px}
+.grid .item b{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);font-weight:700}
+.card.summary .grid .item b{color:#c6d4e4}
+.grid .item span{font-size:15px;font-weight:650}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:14.5px;font-weight:700;text-decoration:none;border-radius:12px;
+  padding:14px 20px;border:none;cursor:pointer;line-height:1.1;
+}
+.btn.primary{background:var(--coral);color:#fff}
+.btn.primary:active{background:var(--coral-dark)}
+.btn.outline{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.card.summary .btn.outline{border-color:#fff;color:#fff}
+.btn.ghost{background:var(--surface-2);color:var(--text)}
+.btn .arrow{font-weight:800}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:620px){.two-col{grid-template-columns:1fr}}
+.station{border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--surface-2)}
+.station .tag{display:inline-flex;align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-dark);background:var(--surface);padding:4px 10px;border-radius:999px;border:1px solid var(--border)}
+.station ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.step p{font-size:14.5px;padding-top:3px}
+
+.qrbox{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.qrbox img{display:none;width:220px;height:220px;border-radius:12px;border:1px solid var(--border);background:#fff;padding:10px}
+.qrbox.open img{display:block}
+.qrbox .cap{font-size:12.5px;color:var(--text-muted);max-width:360px}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--text-muted);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em}
+.errwrap{overflow-x:auto}
+
+.checklist{display:flex;flex-direction:column;gap:10px}
+.checkitem{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.checkitem .box{flex:none;width:18px;height:18px;border:2px solid var(--navy);border-radius:5px;margin-top:2px}
+
+.mesas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.mesa-card{border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--surface-2);display:flex;flex-direction:column;gap:2px;min-width:0}
+.mesa-card .n{font-size:12px;font-weight:800;color:var(--coral-dark);font-variant-numeric:tabular-nums}
+.mesa-card .u{font-size:13px;font-weight:650;line-height:1.3}
+
+.contact{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface-2);border-radius:12px;padding:14px 16px}
+.contact .who{font-size:12px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.contact .num{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy)}
+
+footer{font-size:12px;color:var(--text-muted);text-align:center;padding-top:4px}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Guía operativa · Feria Bogotá</span>
+    <h1>Cómo usar el QR el día del evento</h1>
+    <p class="muted">Para el equipo de StudyIn en la entrada y en las mesas.</p>
+    <div class="meta">
+      <span><b>Evento</b> StudyIn International Education Fair</span>
+      <span><b>Fecha</b> 11 de noviembre de 2026</span>
+      <span><b>Horario</b> 4:00 p.m. – 8:00 p.m.</span>
+      <span><b>Lugar</b> Hotel NH Collection Bogotá World Trade Center, Cra. 8A #99-55, Salón Colombia, Bogotá</span>
+    </div>
+  </header>
+
+  <nav class="jump">
+    <a href="#resumen">Resumen</a>
+    <a href="#escaneo">Cómo se escanea</a>
+    <a href="#si-falla">Si el QR falla</a>
+    <a href="#mesas">Mesas</a>
+    <a href="#requisitos">Qué necesitamos</a>
+    <a href="#soporte">Soporte</a>
+  </nav>
+
+  <div class="card summary" id="resumen">
+    <span class="eyebrow">Resumen ejecutivo</span>
+    <h2>En una mirada</h2>
+    <div class="grid">
+      <div class="item"><b>Qué recibe el estudiante</b><span>QR por correo y WhatsApp al registrarse</span></div>
+      <div class="item"><b>Dos puntos de escaneo</b><span>Recepción (1 vez) y Mesas (varias veces)</span></div>
+      <div class="item"><b>Si el QR falla</b><span>Mostrar el QR de registro nuevo — queda como inscripción nueva</span></div>
+      <div class="item"><b>Si algo no funciona</b><span>Escalar a Sebastián — WhatsApp abajo</span></div>
+    </div>
+  </div>
+
+  <div class="card" id="escaneo">
+    <span class="eyebrow">Cómo se escanea</span>
+    <h2>Dos puntos distintos, dos formas distintas</h2>
+    <div class="two-col">
+      <div class="station">
+        <span class="tag">Recepción</span>
+        <h3>Check-in de ingreso (entrada por recepción)</h3>
+        <p style="font-size:13.5px">Se abre <b>una sola vez</b> al inicio del evento, en el dispositivo de recepción:</p>
+        <ol>
+          <li>Abrir el enlace de abajo.</li>
+          <li>Tocar el botón <b>"Escanear QR"</b> dentro de la página (activa la cámara).</li>
+          <li>Apuntar al QR del estudiante — queda activado su ingreso.</li>
+          <li>Tocar <b>"Escanear siguiente"</b> y repetir con cada estudiante.</li>
+        </ol>
+        <div class="btnrow"><a class="btn primary" href="https://sebashillon-star.github.io/studyin-fair-bogota/checkin.html" target="_blank" rel="noopener">Abrir check-in de recepción <span class="arrow">→</span></a></div>
+      </div>
+      <div class="station">
+        <span class="tag">Mesas</span>
+        <h3>Registro de visita por mesa</h3>
+        <p style="font-size:13.5px">No requiere abrir ningún enlace. Cada mesa usa la <b>cámara nativa</b> del celular/tablet (la misma app de fotos/cámara del sistema):</p>
+        <ol>
+          <li>Apuntar la cámara del celular al QR físico del estudiante.</li>
+          <li>El navegador se abre solo con el nombre del estudiante y una grilla de las 43 mesas.</li>
+          <li>Tocar siempre el botón de <b>su propia mesa</b> (ej. en la Mesa 7, tocar "Mesa 7") — no hay que escribir ni buscar nada.</li>
+        </ol>
+        <p class="muted" style="font-size:12.5px">Un mismo estudiante puede registrarse en varias mesas distintas durante la feria; no puede repetirse dos veces en la misma.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="si-falla">
+    <span class="eyebrow">Si el QR no aparece o no se puede escanear</span>
+    <h2>Primero buscarlo; solo si no existe, registrar de nuevo</h2>
+    <p>Si perdió el correo/WhatsApp o la cámara no logra leer su código, <b>no asumir que hay que registrarlo de nuevo</b> — primero buscar si ya está en el Sheet:</p>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><p>En el computador de apoyo de recepción, abrir el Sheet de respuestas y buscar (<b>Ctrl+F</b> / <b>Cmd+F</b>) el correo de la persona.</p></div>
+      <div class="step"><span class="num">2</span><p>Si aparece, abrir el enlace de la columna <b>URL_QR (columna R)</b> de esa fila — es su QR real, se puede mostrar en pantalla desde ahí.</p></div>
+      <div class="step"><span class="num">3</span><p>Solo si <b>no aparece</b> (nunca se registró), usar el botón de abajo para que se registre ahí mismo con un QR nuevo.</p></div>
+    </div>
+    <p class="muted" style="font-size:12.5px">El botón de abajo crea una inscripción nueva — úsalo solo cuando el paso 1 confirme que la persona no estaba en el Sheet.</p>
+    <div class="qrbox" id="qrbox">
+      <button class="btn primary" id="qrToggleBtn" onclick="toggleQr()">Mostrar QR para registrarse de nuevo</button>
+      <img id="qrImg" width="220" height="220" alt="QR de registro al evento" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACvklEQVR4nO1bUYqkQAxNYkF/tjAH6KPozZo50tygPcocYEE/B5QsSbTbcZYqZRmxMO9DSvNoAiGpl1Q1MmxBQ5voAM6PgxL2JZwfByXsSzg/DkrYl3B+HJSwL+H8M/BxRABoMADWXZDPA2LdTbZ6R3/WgzZwT8yvWNDqqgeAaw9YQyHiq1ATH9v/1aCT8rtnhnaI+uD3ckB+WHaHvf1ZC1rNPCc//Phy7QM3N8nX7sKH95+cv43flAB4t0r9hWl+AuT8Q+TvVRMWAKsWZDkEbmp5/QB938sfcv5v8BuVyKUsO9XPF8Z7q/pqMPn8f7+/GrSeqnB+AvwvPK4ioqH4aTia/+T8OFibH+mK+PFqiFoADbI9PL7Z87uLBPkLLXWbmza8BeP988KmuXy+kXV/NCBDV4q+GgJDF3qE6xAAriqicRJZR/OfnB8H87fR1VikJYmrdqzUUEm59vqcLx9r3Wt16iwJW32G2ZCS32+62s+f9aAN3DPyYRLMPMvaydBrY+z6OX/9DBpGC23BU5Fmi7kOoe0IwuObaXwVEmQJ7esbS2hnTZLHN1d9VcwfUq4tazV/pVJ7fLPnNyKj8CYNkQwp7zrkEM3VlAW7vsqYjzUMFlXdf7Uh0qgaqWrFuqM/60EbuGfkw6SMR608xfcZWh6nl66vsp4/t7KSqD5nGdYuKWzS4fHNls+v/temGnZJJ4z5azftdvRnPWgD97zzZxzfip6b8o8d92P18dYjdG+93dnZxx9y/q/en8TZJTsQVaXHSXhx/Zz9/guvbdbkFixElu+/+fNxvAurQ8oB7fxIbu+M446j+58CnZzPLLcm7RIlz3smr895328RTPXZmqSHHSdNB8MKr885ny+A9L92yD9/hXEI7fHNj4/+/+4oKG7+AefHQQn7Es6PgxL2JZwfByXsSzg/DkrY4eT8v+z7ApdWywkLAAAAAElFTkSuQmCC">
+      <p class="cap">Apunta al formulario de registro público (<code>forms.gle/AfhK3WGM3Q68mBfM8</code>). Queda como una inscripción nueva — no reemplaza un registro anterior si existía.</p>
+    </div>
+  </div>
+
+  <div class="card" id="mesas">
+    <span class="eyebrow">Mirada rápida</span>
+    <h2>Qué hay en cada mesa</h2>
+    <p class="muted" style="font-size:12.5px">Este número es el que usa el sistema para <b>registrar leads</b> — no tiene que coincidir con el número de mesa física que asigne el venue, y <b>no cambia</b> durante el evento.</p>
+    <div class="mesas-grid">
+      <div class="mesa-card"><span class="n">MESA 1</span><span class="u">University of York</span></div>
+      <div class="mesa-card"><span class="n">MESA 2</span><span class="u">Abertay University</span></div>
+      <div class="mesa-card"><span class="n">MESA 3</span><span class="u">University of Leeds</span></div>
+      <div class="mesa-card"><span class="n">MESA 4</span><span class="u">Royal College of Art</span></div>
+      <div class="mesa-card"><span class="n">MESA 5</span><span class="u">University of Warwick</span></div>
+      <div class="mesa-card"><span class="n">MESA 6</span><span class="u">Queen's University Belfast</span></div>
+      <div class="mesa-card"><span class="n">MESA 7</span><span class="u">University of Law</span></div>
+      <div class="mesa-card"><span class="n">MESA 8</span><span class="u">Newcastle University</span></div>
+      <div class="mesa-card"><span class="n">MESA 9</span><span class="u">Liverpool John Moores University</span></div>
+      <div class="mesa-card"><span class="n">MESA 10</span><span class="u">University of Hertfordshire</span></div>
+      <div class="mesa-card"><span class="n">MESA 11</span><span class="u">Bath Spa University</span></div>
+      <div class="mesa-card"><span class="n">MESA 12</span><span class="u">Middlesex University</span></div>
+      <div class="mesa-card"><span class="n">MESA 13</span><span class="u">University College London (UCL)</span></div>
+      <div class="mesa-card"><span class="n">MESA 14</span><span class="u">King's College London</span></div>
+      <div class="mesa-card"><span class="n">MESA 15</span><span class="u">University of Lancaster</span></div>
+      <div class="mesa-card"><span class="n">MESA 16</span><span class="u">University of Guelph</span></div>
+      <div class="mesa-card"><span class="n">MESA 17</span><span class="u">University of Victoria</span></div>
+      <div class="mesa-card"><span class="n">MESA 18</span><span class="u">University of Alberta</span></div>
+      <div class="mesa-card"><span class="n">MESA 19</span><span class="u">Royal Roads University</span></div>
+      <div class="mesa-card"><span class="n">MESA 20</span><span class="u">University College Dublin</span></div>
+      <div class="mesa-card"><span class="n">MESA 21</span><span class="u">University of Galway</span></div>
+      <div class="mesa-card"><span class="n">MESA 22</span><span class="u">Griffith College</span></div>
+      <div class="mesa-card"><span class="n">MESA 23</span><span class="u">University of Western Australia</span></div>
+      <div class="mesa-card"><span class="n">MESA 24</span><span class="u">Torrens University Australia</span></div>
+      <div class="mesa-card"><span class="n">MESA 25</span><span class="u">Newcastle University Australia</span></div>
+      <div class="mesa-card"><span class="n">MESA 26</span><span class="u">University of Auckland</span></div>
+      <div class="mesa-card"><span class="n">MESA 27</span><span class="u">University of Otago</span></div>
+      <div class="mesa-card"><span class="n">MESA 28</span><span class="u">Massey University</span></div>
+      <div class="mesa-card"><span class="n">MESA 29</span><span class="u">Victoria University of Wellington</span></div>
+      <div class="mesa-card"><span class="n">MESA 30</span><span class="u">University of Canterbury</span></div>
+      <div class="mesa-card"><span class="n">MESA 31</span><span class="u">University of Waikato</span></div>
+      <div class="mesa-card"><span class="n">MESA 32</span><span class="u">Lincoln University</span></div>
+      <div class="mesa-card"><span class="n">MESA 33</span><span class="u">Auckland University of Technology (AUT)</span></div>
+      <div class="mesa-card"><span class="n">MESA 34</span><span class="u">University of Twente</span></div>
+      <div class="mesa-card"><span class="n">MESA 35</span><span class="u">University of British Columbia</span></div>
+      <div class="mesa-card"><span class="n">MESA 36</span><span class="u">University of Glasgow</span></div>
+      <div class="mesa-card"><span class="n">MESA 37</span><span class="u">Bayswater</span></div>
+      <div class="mesa-card"><span class="n">MESA 38</span><span class="u">Adelaide University</span></div>
+      <div class="mesa-card"><span class="n">MESA 39</span><span class="u">British Council</span></div>
+      <div class="mesa-card"><span class="n">MESA 40</span><span class="u">Fincomercio</span></div>
+      <div class="mesa-card"><span class="n">MESA 41</span><span class="u">Icetex</span></div>
+      <div class="mesa-card"><span class="n">MESA 42</span><span class="u">Tom &amp; Lore</span></div>
+      <div class="mesa-card"><span class="n">MESA 43</span><span class="u">STM</span></div>
+    </div>
+    <p class="muted" style="font-size:12px">Verificar este mapa contra el Sheet real antes del evento — el cliente puede pedir ajustes sobre la marcha, como ya pasó varias veces en el armado de estas mesas.</p>
+  </div>
+
+  <div class="card">
+    <span class="eyebrow">Mensajes que puede mostrar la pantalla</span>
+    <h2>Qué significan y qué hacer</h2>
+    <div class="errwrap">
+    <table>
+      <tr><th>Mensaje</th><th>Qué significa</th><th>Qué hacer</th></tr>
+      <tr><td>"Código no reconocido"</td><td>El código no existe o se leyó mal</td><td>Reintentar el escaneo; si persiste, usar el QR de registro nuevo</td></tr>
+      <tr><td>"Ya tiene el ingreso activado"</td><td>Ese estudiante ya hizo check-in antes</td><td>Normal — dejarlo pasar, no es un error</td></tr>
+      <tr><td>"Sistema ocupado, muchas personas escaneando a la vez"</td><td>Varias mesas escaneando al mismo tiempo</td><td>Reintentar en unos segundos</td></tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="card" id="requisitos">
+    <span class="eyebrow">Antes del evento</span>
+    <h2>Qué necesitamos para operar</h2>
+    <p class="muted" style="font-size:13.5px">Lo debe asegurar el equipo de StudyIn en el venue, antes de que empiece el evento:</p>
+    <div class="checklist">
+      <div class="checkitem"><span class="box"></span><p><b>Internet en cada punto</b> — wifi del venue o datos móviles, tanto en recepción como en las 43 mesas. Confirmar la señal real en el salón antes del día D.</p></div>
+      <div class="checkitem"><span class="box"></span><p><b>Un celular o tablet por mesa</b> (43 en total) con cámara y navegador actualizado (Chrome o Safari).</p></div>
+      <div class="checkitem"><span class="box"></span><p><b>Un celular o tablet para recepción</b>, con permiso de cámara aceptado en el navegador (la página de check-in lo pide la primera vez).</p></div>
+      <div class="checkitem"><span class="box"></span><p><b>Un computador de apoyo en recepción</b>, con acceso al Sheet de respuestas, para buscar el QR de alguien que no lo tenga a la mano (ver "Si el QR no aparece").</p></div>
+      <div class="checkitem"><span class="box"></span><p><b>Batería suficiente o cargador a la mano</b> — el uso de cámara continuo durante 4 horas consume batería rápido.</p></div>
+      <div class="checkitem"><span class="box"></span><p><b>Una persona de StudyIn como punto de contacto interno</b> durante el evento, para recibir dudas del equipo antes de escalar a soporte externo.</p></div>
+    </div>
+  </div>
+
+  <div class="card" id="soporte">
+    <span class="eyebrow">Soporte en vivo</span>
+    <h2>Si algo no se resuelve con esta guía</h2>
+    <p>Primero intentar: recargar la página de la estación, o si es un estudiante puntual, usar el QR de registro nuevo (arriba). Si el sistema completo falla, escribir a:</p>
+    <div class="contact">
+      <div><div class="who">Sebastián — DS Consulting</div><div class="num">+57 319 448 4170</div></div>
+      <div class="btnrow">
+        <button class="btn ghost" onclick="copiarNumero(this)">Copiar número</button>
+        <a class="btn primary" href="https://wa.me/573194484170" target="_blank" rel="noopener">Abrir WhatsApp <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="eyebrow">Enlaces rápidos</span>
+    <h2>Recursos del día del evento</h2>
+    <div class="btnrow">
+      <a class="btn outline" href="https://sebashillon-star.github.io/studyin-fair-bogota/checkin.html" target="_blank" rel="noopener">Check-in de recepción <span class="arrow">→</span></a>
+      <a class="btn outline" href="https://stm-studyin-events.com/bogota" target="_blank" rel="noopener">Landing del evento <span class="arrow">→</span></a>
+      <a class="btn outline" href="https://forms.gle/AfhK3WGM3Q68mBfM8" target="_blank" rel="noopener">Formulario de registro <span class="arrow">→</span></a>
+    </div>
+    <p class="muted" style="font-size:12.5px">El registro por mesa no tiene enlace propio: se hace apuntando la cámara nativa del celular al QR de cada estudiante (ver "Cómo se escanea" arriba).</p>
+  </div>
+
+  <footer>DS Consulting para STM · StudyIn International Education Fair Bogotá</footer>
+
+</div>
+
+<script>
+function toggleQr(){
+  const box = document.getElementById('qrbox');
+  const btn = document.getElementById('qrToggleBtn');
+  const open = box.classList.toggle('open');
+  btn.textContent = open ? 'Ocultar QR' : 'Mostrar QR para registrarse de nuevo';
+}
+function copiarNumero(btn){
+  const original = btn.textContent;
+  const done = () => { btn.textContent = 'Copiado ✓'; setTimeout(()=>{ btn.textContent = original; }, 1800); };
+  try {
+    navigator.clipboard.writeText('+57 319 448 4170').then(done).catch(done);
+  } catch(e) { done(); }
+}
+</script>
+
+</body></html>
