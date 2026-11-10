@@ -123,6 +123,27 @@
   }
   .btn-cancel { background: #e2e6ea; color: var(--navy); }
   .btn-confirm { background: var(--coral); color: #fff; }
+  .btn-hotlead {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    border: 1.5px solid var(--coral);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 150ms ease, color 150ms ease, transform 160ms ease-out;
+  }
+  .btn-hotlead:active { transform: scale(0.97); }
+  .btn-hotlead.on {
+    background: var(--coral);
+    color: #fff;
+  }
   .status {
     margin-top: 22px;
     font-size: 15px;
@@ -182,6 +203,17 @@
 
   let mesaSeleccionada = null;
   let btnSeleccionado = null;
+  let hotLeadMarcado = false;
+
+  function toggleHotLead() {
+    hotLeadMarcado = !hotLeadMarcado;
+    const btn = document.getElementById('hotleadBtn');
+    btn.classList.toggle('on', hotLeadMarcado);
+    btn.setAttribute('aria-pressed', String(hotLeadMarcado));
+    btn.innerHTML = hotLeadMarcado
+      ? '🔥 Hot lead marcado<br>Hot lead marked'
+      : '🔥 Marcar como hot lead<br>Mark as hot lead';
+  }
 
   function render(html) { card.innerHTML = html; }
 
@@ -268,6 +300,7 @@
       <div class="mesa-panel" id="mesaPanel" style="display:none;">
         <p class="panel-title" id="panelMesaTitle"></p>
         <textarea id="comentarioInput" placeholder="Comentario sobre el candidato (opcional)"></textarea>
+        <button type="button" class="btn-hotlead" id="hotleadBtn" onclick="toggleHotLead()" aria-pressed="false">🔥 Marcar como hot lead<br>Mark as hot lead</button>
         <div class="panel-actions">
           <button class="btn-cancel" onclick="cerrarPanel()">Cancelar</button>
           <button class="btn-confirm" onclick="confirmarVisita()">Guardar visita</button>
@@ -282,6 +315,11 @@
     btnSeleccionado = btn;
     document.getElementById('panelMesaTitle').textContent = 'Mesa ' + mesaNum;
     document.getElementById('comentarioInput').value = '';
+    hotLeadMarcado = false;
+    const hotleadBtn = document.getElementById('hotleadBtn');
+    hotleadBtn.classList.remove('on');
+    hotleadBtn.setAttribute('aria-pressed', 'false');
+    hotleadBtn.innerHTML = '🔥 Marcar como hot lead<br>Mark as hot lead';
     document.getElementById('mesaPanel').style.display = 'block';
     document.getElementById('mesaPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -302,7 +340,7 @@
     try {
       const data = await postConReintento(
         APPS_SCRIPT_URL,
-        { id: studentId, mesa: mesaSeleccionada, comentario: comentario },
+        { id: studentId, mesa: mesaSeleccionada, comentario: comentario, hotLead: hotLeadMarcado },
         (intento, total) => { statusEl.textContent = `Sistema ocupado, reintentando... (${intento}/${total})`; }
       );
       if (data.ok) {
