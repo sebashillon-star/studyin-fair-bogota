@@ -111,8 +111,10 @@ th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--border);vert
 th{color:var(--text-muted);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
 .errwrap{overflow-x:auto}
 
-.mesas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:9px}
-.mesa-card{border:1px solid var(--border);border-radius:11px;padding:9px 11px;background:var(--surface-2);display:flex;flex-direction:column;gap:1px;min-width:0}
+.mesas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+.mesa-card{border:1px solid var(--border);border-radius:11px;padding:9px 11px;background:var(--surface-2);display:flex;align-items:center;gap:9px;min-width:0}
+.mesa-card .logo{flex:none;width:32px;height:32px;border-radius:7px;background:#fff;object-fit:contain;padding:3px;border:1px solid var(--border)}
+.mesa-card .txt{display:flex;flex-direction:column;gap:1px;min-width:0}
 .mesa-card .n{font-size:11px;font-weight:800;color:var(--coral-dark)}
 .mesa-card .u{font-size:12.5px;font-weight:650;line-height:1.3}
 
@@ -236,49 +238,49 @@ th{color:var(--text-muted);font-weight:700;font-size:11px;text-transform:upperca
     <div class="card">
       <h2 data-i18n="mesas.h2">Qué hay en cada mesa</h2>
       <div class="mesas-grid">
-        <div class="mesa-card"><span class="n">MESA 1</span><span class="u">University of York</span></div>
-        <div class="mesa-card"><span class="n">MESA 2</span><span class="u">Abertay University</span></div>
-        <div class="mesa-card"><span class="n">MESA 3</span><span class="u">University of Leeds</span></div>
-        <div class="mesa-card"><span class="n">MESA 4</span><span class="u">Royal College of Art</span></div>
-        <div class="mesa-card"><span class="n">MESA 5</span><span class="u">University of Warwick</span></div>
-        <div class="mesa-card"><span class="n">MESA 6</span><span class="u">Queen's University Belfast</span></div>
-        <div class="mesa-card"><span class="n">MESA 7</span><span class="u">University of Law</span></div>
-        <div class="mesa-card"><span class="n">MESA 8</span><span class="u">Newcastle University</span></div>
-        <div class="mesa-card"><span class="n">MESA 9</span><span class="u">Liverpool John Moores University</span></div>
-        <div class="mesa-card"><span class="n">MESA 10</span><span class="u">University of Hertfordshire</span></div>
-        <div class="mesa-card"><span class="n">MESA 11</span><span class="u">Bath Spa University</span></div>
-        <div class="mesa-card"><span class="n">MESA 12</span><span class="u">Middlesex University</span></div>
-        <div class="mesa-card"><span class="n">MESA 13</span><span class="u">University College London (UCL)</span></div>
-        <div class="mesa-card"><span class="n">MESA 14</span><span class="u">King's College London</span></div>
-        <div class="mesa-card"><span class="n">MESA 15</span><span class="u">University of Lancaster</span></div>
-        <div class="mesa-card"><span class="n">MESA 16</span><span class="u">University of Guelph</span></div>
-        <div class="mesa-card"><span class="n">MESA 17</span><span class="u">University of Victoria</span></div>
-        <div class="mesa-card"><span class="n">MESA 18</span><span class="u">University of Alberta</span></div>
-        <div class="mesa-card"><span class="n">MESA 19</span><span class="u">Royal Roads University</span></div>
-        <div class="mesa-card"><span class="n">MESA 20</span><span class="u">University College Dublin</span></div>
-        <div class="mesa-card"><span class="n">MESA 21</span><span class="u">University of Galway</span></div>
-        <div class="mesa-card"><span class="n">MESA 22</span><span class="u">Griffith College</span></div>
-        <div class="mesa-card"><span class="n">MESA 23</span><span class="u">University of Western Australia</span></div>
-        <div class="mesa-card"><span class="n">MESA 24</span><span class="u">Torrens University Australia</span></div>
-        <div class="mesa-card"><span class="n">MESA 25</span><span class="u">Newcastle University Australia</span></div>
-        <div class="mesa-card"><span class="n">MESA 26</span><span class="u">University of Auckland</span></div>
-        <div class="mesa-card"><span class="n">MESA 27</span><span class="u">University of Otago</span></div>
-        <div class="mesa-card"><span class="n">MESA 28</span><span class="u">Massey University</span></div>
-        <div class="mesa-card"><span class="n">MESA 29</span><span class="u">Victoria University of Wellington</span></div>
-        <div class="mesa-card"><span class="n">MESA 30</span><span class="u">University of Canterbury</span></div>
-        <div class="mesa-card"><span class="n">MESA 31</span><span class="u">University of Waikato</span></div>
-        <div class="mesa-card"><span class="n">MESA 32</span><span class="u">Lincoln University</span></div>
-        <div class="mesa-card"><span class="n">MESA 33</span><span class="u">Auckland University of Technology (AUT)</span></div>
-        <div class="mesa-card"><span class="n">MESA 34</span><span class="u">University of Twente</span></div>
-        <div class="mesa-card"><span class="n">MESA 35</span><span class="u">University of British Columbia</span></div>
-        <div class="mesa-card"><span class="n">MESA 36</span><span class="u">University of Glasgow</span></div>
-        <div class="mesa-card"><span class="n">MESA 37</span><span class="u">Bayswater</span></div>
-        <div class="mesa-card"><span class="n">MESA 38</span><span class="u">Adelaide University</span></div>
-        <div class="mesa-card"><span class="n">MESA 39</span><span class="u">British Council</span></div>
-        <div class="mesa-card"><span class="n">MESA 40</span><span class="u">Fincomercio</span></div>
-        <div class="mesa-card"><span class="n">MESA 41</span><span class="u">Icetex</span></div>
-        <div class="mesa-card"><span class="n">MESA 42</span><span class="u">Tom &amp; Lore</span></div>
-        <div class="mesa-card"><span class="n">MESA 43</span><span class="u">STM</span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/01-york.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 1</span><span class="u">University of York</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/02-abertay.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 2</span><span class="u">Abertay University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/03-leeds.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 3</span><span class="u">University of Leeds</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/04-rca.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 4</span><span class="u">Royal College of Art</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/05-warwick.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 5</span><span class="u">University of Warwick</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/06-qub.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 6</span><span class="u">Queen's University Belfast</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/07-law.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 7</span><span class="u">University of Law</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/08-newcastle-uk.webp" alt="" loading="lazy"><span class="txt"><span class="n">MESA 8</span><span class="u">Newcastle University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/09-ljmu.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 9</span><span class="u">Liverpool John Moores University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/10-hertfordshire.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 10</span><span class="u">University of Hertfordshire</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/11-bathspa.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 11</span><span class="u">Bath Spa University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/12-middlesex.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 12</span><span class="u">Middlesex University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/13-ucl.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 13</span><span class="u">University College London (UCL)</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/14-kcl.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 14</span><span class="u">King's College London</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/15-lancaster.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 15</span><span class="u">University of Lancaster</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/16-guelph.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 16</span><span class="u">University of Guelph</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/17-uvic.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 17</span><span class="u">University of Victoria</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/18-alberta.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 18</span><span class="u">University of Alberta</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/19-royalroads.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 19</span><span class="u">Royal Roads University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/20-ucd.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 20</span><span class="u">University College Dublin</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/21-galway.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 21</span><span class="u">University of Galway</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/22-griffith.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 22</span><span class="u">Griffith College</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/23-uwa.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 23</span><span class="u">University of Western Australia</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/24-torrens.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 24</span><span class="u">Torrens University Australia</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/25-newcastle-au.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 25</span><span class="u">Newcastle University Australia</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/26-auckland.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 26</span><span class="u">University of Auckland</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/27-otago.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 27</span><span class="u">University of Otago</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/28-massey.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 28</span><span class="u">Massey University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/29-victoria-wellington.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 29</span><span class="u">Victoria University of Wellington</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/30-canterbury.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 30</span><span class="u">University of Canterbury</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/31-waikato.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 31</span><span class="u">University of Waikato</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/32-lincoln.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 32</span><span class="u">Lincoln University</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/33-aut.jpg" alt="" loading="lazy"><span class="txt"><span class="n">MESA 33</span><span class="u">Auckland University of Technology (AUT)</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/34-twente.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 34</span><span class="u">University of Twente</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/35-ubc.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 35</span><span class="u">University of British Columbia</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/36-glasgow.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 36</span><span class="u">University of Glasgow</span></span></div>
+        <div class="mesa-card"><span class="txt"><span class="n">MESA 37</span><span class="u">Bayswater</span></span></div>
+        <div class="mesa-card"><img class="logo" src="assets/universities/38-adelaide.png" alt="" loading="lazy"><span class="txt"><span class="n">MESA 38</span><span class="u">Adelaide University</span></span></div>
+        <div class="mesa-card"><span class="txt"><span class="n">MESA 39</span><span class="u">British Council</span></span></div>
+        <div class="mesa-card"><span class="txt"><span class="n">MESA 40</span><span class="u">Fincomercio</span></span></div>
+        <div class="mesa-card"><span class="txt"><span class="n">MESA 41</span><span class="u">Icetex</span></span></div>
+        <div class="mesa-card"><span class="txt"><span class="n">MESA 42</span><span class="u">Tom &amp; Lore</span></span></div>
+        <div class="mesa-card"><span class="txt"><span class="n">MESA 43</span><span class="u">STM</span></span></div>
       </div>
     </div>
 
